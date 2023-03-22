@@ -1,10 +1,10 @@
 import React from 'react'
 import { Carousel } from 'antd'
 import styled from 'styled-components'
-import Image from 'next/legacy/image'
 import Banner1 from '../img/Banner.png'
 import Banner2 from '../img/Banner2.png'
 import Banner3 from '../img/Banner3.png'
+import Image from 'next/image'
 
 const Container = styled.div`
   margin: 1rem 0 1.5rem;

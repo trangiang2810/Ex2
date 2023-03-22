@@ -13,17 +13,38 @@ import Sidebar from './Sidebar'
 const Container = styled.div`
   margin: 0 10.5rem;
   display: flex;
+  @media (max-width: 768px) {
+    margin: 0 1.5rem 0 0;
+  }
 `
 
 const WrapperProduct = styled.div`
   padding: 2.5rem 0 0 0;
   width: 52.875rem;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`
+const Row = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 `
 const ItemProduct = styled.div`
   margin: 0 0 1.5rem 1.5rem;
   border-radius: 10px;
   background: #fff;
   position: relative;
+  cursor: pointer;
+  :hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  :active {
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+      rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  }
 `
 
 const Favourite = styled.span`
@@ -49,11 +70,14 @@ const Content = styled.div`
 
 const Title = styled.h2`
   font-weight: 700;
-  font-size: 24px;
+  font-size: 1.5rem;
   line-height: 32px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+  }
 `
 
 const Information = styled.div`
@@ -67,6 +91,9 @@ const TextItem = styled.div`
   gap: 0.78125rem;
   font-size: 0.75rem;
   align-items: center;
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `
 
 const Km = styled.span`
@@ -126,13 +153,6 @@ const Button = styled.button`
 //   padding: 0.3rem;
 // `
 
-const Row = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-`
 // const Col = styled.div``
 const Product: React.FC = () => {
   return (

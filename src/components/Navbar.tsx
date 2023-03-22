@@ -1,11 +1,13 @@
 import styled from 'styled-components'
 import Logo from '../img/logo.png'
 import Arrow from '../img/Polygon 3.png'
-import Flag from '../img/flag.png'
+import FlagEN from '../img/flag.png'
+import FlagVN from '../img/flag.png'
 import SearchIcon from '../img/icons/search.png'
 import Image from 'next/image'
 import { Button, Select } from 'antd'
 import Link from 'next/link'
+const { Option } = Select
 const Header = styled.header`
   background: #fff;
   height: 5rem;
@@ -84,7 +86,12 @@ const Login = styled.a`
   border-bottom: 0.1rem solid #007aff;
   padding: 0 0 0.2rem 0;
 `
-
+const FromSearch = styled(Search)`
+  border: 1px solid #fcdab0;
+`
+const InputS = styled(Input)`
+  background: #fbfbfb;
+`
 const handleChange = (value: string) => {
   console.log(`selected ${value}`)
 }
@@ -108,10 +115,10 @@ export default function Navbar() {
           Ha Noi
           <Image src={Arrow} alt="" />
         </Location> */}
-        <Search>
+        <FromSearch>
           <Image src={SearchIcon} alt="" />
-          <Input type="text" placeholder="Nhập từ khóa" />
-        </Search>
+          <InputS type="text" placeholder="Nhập từ khóa" />
+        </FromSearch>
       </Wrapper>
       <Wrapper>
         {/* <Button type="primary" danger>
@@ -119,7 +126,7 @@ export default function Navbar() {
         </Button> */}
         <BtnOrder>Order</BtnOrder>
 
-        <Select
+        {/* <Select
           defaultValue="EN"
           onChange={handleChange}
           options={[
@@ -127,11 +134,33 @@ export default function Navbar() {
             { value: 'VN', label: 'VN' },
           ]}
         />
-        {/* <Language>
-          <Image src={Flag} alt="" />
+         */}
+
+        {/* <Select
+          defaultValue={
+            <Option>
+              <Image src={FlagEN} alt="EEN" width={28} height={20} />
+              <label>EN</label>
+            </Option>
+          }
+          placeholder="Chọn ngôn ngữ"
+          optionFilterProp="children"
+        >
+          <Option>
+            <Image src={FlagEN} alt="EN" width={28} height={20} />
+            <label>EN</label>
+          </Option>
+
+          <Option>
+            <Image src={FlagVN} alt="VN" width={28} height={20} />
+            <label>VN</label>
+          </Option>
+        </Select> */}
+        <Language>
+          <Image src={FlagEN} alt="" />
           <p>EN</p>
           <Image src={Arrow} alt="" />
-        </Language> */}
+        </Language>
         <Login href="/">Đăng nhập</Login>
       </Wrapper>
     </Header>

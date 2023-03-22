@@ -14,7 +14,7 @@ const Footers = styled.footer`
   padding: 0 10.5rem;
   border-top: 1px solid #bdbdbd;
   @media (max-width: 768px) {
-    padding: 0 5rem;
+    padding: 0 1.5rem;
   }
 `
 // style={{ borderTop: '1px solid #E0E1E0', margin: '0 10.5rem' }}
