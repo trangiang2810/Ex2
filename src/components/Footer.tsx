@@ -10,10 +10,14 @@ import Anderoid from '../img/icons/Anderoid.png'
 import styled from 'styled-components'
 
 const Footers = styled.footer`
-  /* margin: 0 10.5rem; */
   background: #fff;
+  padding: 0 10.5rem;
+  border-top: 1px solid #bdbdbd;
+  @media (max-width: 768px) {
+    padding: 0 5rem;
+  }
 `
-
+// style={{ borderTop: '1px solid #E0E1E0', margin: '0 10.5rem' }}
 const App = styled.div`
   width: 5.5rem;
   height: 5.5rem;
@@ -51,12 +55,30 @@ const Address = styled.div`
   text-align: right;
 `
 
+const FromCopyright = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  margin-top: 5rem;
+`
+const WrapperCopyright = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8125rem;
+  margin: auto;
+`
 const Copyright = styled.p`
   font-size: 10px;
   color: #828282;
   letter-spacing: -0.01em;
 `
 
+const WrapperIconLick = styled.div`
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin: auto;
+`
 const IconLink = styled.a`
   width: 1.5rem;
   height: 1.5rem;
@@ -65,29 +87,11 @@ const IconLink = styled.a`
   border-radius: 100%;
   color: #fff;
 `
-const WrapperIconLick = styled.div`
-  display: flex;
-  gap: 1.5rem;
-`
-
-const FromCopyright = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1.75rem;
-  /* text-align: center; */
-  /* margin: auto; */
-`
-
-const WrapperCopyright = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.8125rem;
-`
 
 const Footer: React.FC = () => {
   return (
     <Footers>
-      <Row style={{ borderTop: '1px solid #E0E1E0', margin: '0 10.5rem' }}>
+      <Row>
         <Col span={5}>
           <Title>Công ty</Title>
           <ul>
@@ -120,7 +124,7 @@ const Footer: React.FC = () => {
             </Li>
           </ul>
         </Col>
-        <Col span={5}>
+        <Col span={4}>
           <Title>App Capichi</Title>
           <App>
             <AppIcon>
@@ -135,7 +139,7 @@ const Footer: React.FC = () => {
             <p>Anderoid</p>
           </App>
         </Col>
-        <Col span={7}>
+        <Col span={8}>
           <FromCopyright>
             <WrapperCopyright>
               <Image width={212} height={62} src={Logo} alt="logo" />

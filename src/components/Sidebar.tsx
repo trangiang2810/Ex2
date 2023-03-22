@@ -7,7 +7,7 @@ import img from '../img/icons/icon1.png'
 const Container = styled.div`
   width: 16.125rem;
   background: #fff;
-  height: 100vh;
+  /* height: 100vh; */
   box-shadow: 0px 0px 2px rgba(40, 41, 61, 0.04),
     0px 4px 8px rgba(96, 97, 112, 0.16);
   overflow-y: scroll;

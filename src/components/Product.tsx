@@ -5,8 +5,10 @@ import { dataFood } from '../data'
 import Sl from '../img/Coupon.png'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { BsFillDoorClosedFill, BsClockFill } from 'react-icons/bs'
+import { AiFillBell } from 'react-icons/ai'
 import Booking from '../img/booking.png'
-import { Col, Row } from 'antd'
+import { Alert, Space } from 'antd'
+// import { Col, Row } from 'antd'
 import Sidebar from './Sidebar'
 const Container = styled.div`
   margin: 0 10.5rem;
@@ -18,7 +20,7 @@ const WrapperProduct = styled.div`
   width: 52.875rem;
 `
 const ItemProduct = styled.div`
-  margin-left: 24px;
+  margin: 0 0 1.5rem 1.5rem;
   border-radius: 10px;
   background: #fff;
   position: relative;
@@ -82,17 +84,23 @@ const WrapperTime = styled.div`
 const TimeL = styled.span`
   background: rgba(46, 146, 255, 0.2);
   border-radius: 10px;
-  padding: 0.1rem 0.25rem;
+  padding: 0.1rem 0.3rem;
 `
 const TimeR = styled.span`
   background: rgba(29, 172, 14, 0.2);
   border-radius: 10px;
-  padding: 0.1rem 0.25rem;
+  padding: 0.1rem 0.3rem;
 `
 
-const Order = styled.div``
+const Order = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
 
 const Button = styled.button`
+  width: 101px;
+  height: 32px;
   font-weight: 700;
   font-size: 14px;
   line-height: 16px;
@@ -104,6 +112,28 @@ const Button = styled.button`
   color: #fff;
 `
 
+// const FromAlert = styled.div`
+//   position: fixed;
+//   bottom: 30%;
+//   right: 0;
+// `
+
+// const IconAl = styled.div`
+//   background: #fcdab0;
+//   color: #ff881d;
+//   font-size: 1.3rem;
+//   border-radius: 5px 0 0 5px;
+//   padding: 0.3rem;
+// `
+
+const Row = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+`
+// const Col = styled.div``
 const Product: React.FC = () => {
   return (
     <>
@@ -125,53 +155,67 @@ const Product: React.FC = () => {
                 cTime,
               }) => (
                 <>
-                  <Col span={8}>
-                    <ItemProduct>
-                      <div>
-                        <Image src={image} alt="" />
-                        <Favourite>
-                          <Image src={favourite} alt="" />
-                        </Favourite>
-                        <Sale>
-                          <Image src={Sl} alt="" />
-                          <span>20%</span>
-                        </Sale>
-                      </div>
-                      <Content>
-                        <Title>{title}</Title>
-                        <Information>
-                          <TextItem>
-                            <span>
-                              <FaMapMarkerAlt />
-                            </span>
-                            <span>
-                              {address} <Km>({distance}km)</Km>
-                            </span>
-                          </TextItem>
+                  {/* <Col span={8}> */}
+                  <ItemProduct>
+                    <div>
+                      <Image
+                        style={{ width: '100%', height: 'auto' }}
+                        src={image}
+                        alt=""
+                      />
+                      <Favourite>
+                        <Image src={favourite} alt="" />
+                      </Favourite>
+                      <Sale>
+                        <Image src={Sl} alt="" />
+                        <span>20%</span>
+                      </Sale>
+                    </div>
+                    <Content>
+                      <Title>{title}</Title>
+                      <Information>
+                        <TextItem>
+                          <span>
+                            <FaMapMarkerAlt />
+                          </span>
+                          <span>
+                            {address} <Km>({distance}km)</Km>
+                          </span>
+                        </TextItem>
 
-                          <TextItem>
-                            <BsFillDoorClosedFill />
-                            <Regime>Đang mở cửa</Regime>
-                          </TextItem>
-                          <TextItem>
-                            <BsClockFill />
-                            <WrapperTime>
-                              <TimeL>{oTime}</TimeL>
-                              <TimeR>{cTime}</TimeR>
-                            </WrapperTime>
-                          </TextItem>
-                        </Information>
-                        <Order>
-                          <Button>Delivery</Button>
-                          <Image src={Booking} alt="" />
-                        </Order>
-                      </Content>
-                    </ItemProduct>
-                  </Col>
+                        <TextItem>
+                          <BsFillDoorClosedFill />
+                          <Regime>{status}</Regime>
+                        </TextItem>
+                        <TextItem>
+                          <BsClockFill />
+                          <WrapperTime>
+                            <TimeL>{oTime}</TimeL>
+                            <TimeR>{cTime}</TimeR>
+                          </WrapperTime>
+                        </TextItem>
+                      </Information>
+                      <Order>
+                        <Button>Delivery</Button>
+                        <Image src={Booking} alt="" />
+                      </Order>
+                    </Content>
+                  </ItemProduct>
+                  {/* </Col> */}
                 </>
               ),
             )}
           </Row>
+          {/* <FromAlert>
+
+            <Alert
+              message="Đơn hàng cảu bạn đã đặt thành công"
+              type="warning"
+            />
+            <IconAl>
+              <AiFillBell />
+            </IconAl>
+          </FromAlert> */}
         </WrapperProduct>
       </Container>
     </>

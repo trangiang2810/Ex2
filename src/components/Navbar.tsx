@@ -5,6 +5,7 @@ import Flag from '../img/flag.png'
 import SearchIcon from '../img/icons/search.png'
 import Image from 'next/image'
 import { Button, Select } from 'antd'
+import Link from 'next/link'
 const Header = styled.header`
   background: #fff;
   height: 5rem;
@@ -14,6 +15,9 @@ const Header = styled.header`
   padding: 0 4rem;
   box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.08),
     0px 0.5px 2px rgba(96, 97, 112, 0.16);
+  @media (max-width: 768px) {
+    /* background: red; */
+  }
 `
 
 // const Location = styled.button`
@@ -53,15 +57,15 @@ const Wrapper = styled.div`
   align-items: center;
   gap: 2rem;
 `
-// const BtnOrder = styled.button`
-//   font-weight: 700;
-//   font-size: 1rem;
-//   border-radius: 10px;
-//   color: #fff;
-//   background: #ff881d;
-//   width: 5.25rem;
-//   height: 2rem;
-// `
+const BtnOrder = styled.button`
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 10px;
+  color: #fff;
+  background: #ff881d;
+  width: 5.25rem;
+  height: 2rem;
+`
 const Language = styled.button`
   border: 1px solid #fcdab0;
   display: flex;
@@ -87,13 +91,12 @@ const handleChange = (value: string) => {
 export default function Navbar() {
   return (
     <Header>
-      <div>
+      <Link href="/">
         <Image src={Logo} alt="" />
-      </div>
+      </Link>
       <Wrapper>
         <Select
           defaultValue="HaNoi"
-          style={{}}
           onChange={handleChange}
           options={[
             { value: 'HaNoi', label: 'Ha Noi' },
@@ -111,26 +114,24 @@ export default function Navbar() {
         </Search>
       </Wrapper>
       <Wrapper>
-        <Button
-          style={{
-            background: '#ff881d',
-            borderRadius: '0.625rem',
-            fontWeight: '700',
-            width: ' 5.25rem',
-            height: '2rem',
-            fontSize: '1rem',
-          }}
-          type="primary"
-          danger
-        >
+        {/* <Button type="primary" danger>
           Order
-        </Button>
-        {/* <BtnOrder>Order</BtnOrder> */}
-        <Language>
+        </Button> */}
+        <BtnOrder>Order</BtnOrder>
+
+        <Select
+          defaultValue="EN"
+          onChange={handleChange}
+          options={[
+            { value: 'EN', label: 'EN' },
+            { value: 'VN', label: 'VN' },
+          ]}
+        />
+        {/* <Language>
           <Image src={Flag} alt="" />
           <p>EN</p>
           <Image src={Arrow} alt="" />
-        </Language>
+        </Language> */}
         <Login href="/">Đăng nhập</Login>
       </Wrapper>
     </Header>

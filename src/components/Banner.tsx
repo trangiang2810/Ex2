@@ -1,14 +1,20 @@
-import React from 'react';
-import { Carousel } from 'antd';
-import styled from 'styled-components';
-import Image from 'next/image';
-import main1 from '../img/Banner.png';
-import main2 from '../img/Layer 1 1.png';
+import React from 'react'
+import { Carousel } from 'antd'
+import styled from 'styled-components'
+import Image from 'next/legacy/image'
+import Banner1 from '../img/Banner.png'
+import Banner2 from '../img/Banner2.png'
+import Banner3 from '../img/Banner3.png'
+
 const Container = styled.div`
   margin: 1rem 0 1.5rem;
   box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.04),
     0px 2px 4px rgba(96, 97, 112, 0.16);
-`;
+`
+const Img = styled(Image)`
+  width: 100%;
+  object-fit: cover;
+`
 
 // const Wrapper = styled.div`
 //   display: flex;
@@ -51,38 +57,11 @@ const Container = styled.div`
 const Banner: React.FC = () => (
   <Container>
     <Carousel autoplay>
-      {/* <Wrapper>
-        <div>
-          <Title>
-            Get your delivery done. <TitleLast> Anytime, Anywhere</TitleLast>
-          </Title>
-          <P>
-            Apparently we had reached a great height in the atmosphere, for the
-            sky was a dead black, and the starts had ceased to twinkle
-          </P>
-          <Button>VISIT NOW</Button>
-        </div>
-        <WrapperBg>
-          <Image src={main1} alt="hi" />
-        </WrapperBg>
-      </Wrapper>  */}
-      <div>
-        <h3>
-          <Image src={main1} alt="hi" />
-        </h3>
-      </div>
-      <div>
-        <h3>
-          <Image src={main1} alt="hi" />
-        </h3>
-      </div>
-      <div>
-        <h3>
-          <Image src={main1} alt="hi" />
-        </h3>
-      </div>
+      <Img src={Banner1} alt="hi" />
+      <Img src={Banner2} alt="hi" />
+      <Img src={Banner3} alt="hi" />
     </Carousel>
   </Container>
-);
+)
 
-export default Banner;
+export default Banner
